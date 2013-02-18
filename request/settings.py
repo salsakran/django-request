@@ -13,6 +13,8 @@ REQUEST_LOG_USER = getattr(settings, 'REQUEST_LOG_USER', True)
 REQUEST_IGNORE_USERNAME = getattr(settings, 'REQUEST_IGNORE_USERNAME', tuple())
 REQUEST_IGNORE_PATHS = getattr(settings, 'REQUEST_IGNORE_PATHS', tuple())
 
+ELB_IP_FIX = False
+
 REQUEST_TRAFFIC_MODULES = getattr(settings, 'REQUEST_TRAFFIC_MODULES', (
     'request.traffic.UniqueVisitor',
     'request.traffic.UniqueVisit',
