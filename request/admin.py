@@ -30,7 +30,8 @@ class RequestAdmin(admin.ModelAdmin):
     )
     raw_id_fields = ('user',)
     readonly_fields = ('time',)
-
+    list_filter = ('response',"method",)
+    
     def lookup_allowed(self, key, value):
         return key == 'user__username' or super(RequestAdmin, self).lookup_allowed(key, value)
 
