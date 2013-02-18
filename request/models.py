@@ -49,11 +49,11 @@ class Request(models.Model):
         self.is_ajax = request.is_ajax()
 
         # User infomation
-        if settings.ELB_IP_FIX:
+        if settings.ELB_IP_FIX and 'X-Forwarded-For' in request.META:
             self.ip = request.META.get('X-Forwarded-For','')
         else:
             self.ip = request.META.get('REMOTE_ADDR', '')
-            
+
         self.referer = request.META.get('HTTP_REFERER', '')[:255]
         self.user_agent = request.META.get('HTTP_USER_AGENT', '')[:255]
         self.language = request.META.get('HTTP_ACCEPT_LANGUAGE', '')[:255]
